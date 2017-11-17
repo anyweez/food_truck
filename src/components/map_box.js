@@ -245,6 +245,7 @@ class MapBox extends Component {
     });
 
     this.map.on('click', 'missing', (e) => {
+      
       // console.log('hi');
       // The flyTo needed to be an arrow function to not tie it to the the map.on function.
       this.map.flyTo({
@@ -348,11 +349,11 @@ class MapBox extends Component {
   };
 
   render() {
-    console.log(this.state.longitude);
-    console.log(this.state.id);
-   console.log(this.state.instructions);
-   console.log(this.state.distance);
-   console.log(this.state.draw_line);
+  //   console.log(this.state.longitude);
+  //   console.log(this.state.id);
+  //  console.log(this.state.instructions);
+  //  console.log(this.state.distance);
+  //  console.log(this.state.draw_line);
 
     return (
       <div className="mapbox">
