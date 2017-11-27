@@ -42,10 +42,10 @@ goButton() {
     }
 
     return (
-      <div className="favTruckDetails">
-        <h3>People on Yelp say...</h3>
+      <div>
+        <h3>Recent reviews</h3>
         <button className="goThere"
-          onClick={ ()=> this.goButton()}>GO
+          onClick={ ()=> this.goButton()}>Back to Map
         </button>
         {reviews}
       </div>

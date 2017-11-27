@@ -6,7 +6,6 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-color: mintcream;
 }
 
 .appWrapper {
@@ -16,25 +15,42 @@ body {
   width: 95vw;
   height: 100vh;
   overflow: scroll;
-  background-color: #e5fafc;
-  border: 4px solid #a9ffd4;
+  background-color: rgb(135,162,177);
+  border: 4px solid rgb(159,180,192);
 }
 
 .header {
+  display: grid;
+  grid-template-columns: 33% 33% 34%;
+  grid-template-rows: 100%;
   margin: none;
-  background-color: #a9ffd4;
+  background-color: white;
   width: 100%;
 }
 
 .headerPtag {
+  /* display: inline-flex; */
+  grid-column-start: 2;
+  grid-column-end: 3;
+  /* width: 100%; */
   font-size: 28px;
   font-weight: bolder;
-  color: #ea8a5d;
+  color: rgb(135,162,177);
   margin-top: 0;
   margin-bottom: 2px;
-  text-align: center;
+  /* justify-content: center; */
+  /* text-align: center;  */
+}
+
+.logOut {
+  /* display: flex-end; */
+  grid-column-start: 3;
+  grid-column-end: 3;
+  grid-template-areas: 1;
+  justify-self: end;
 }
 /* End All The Primary Stuff Section*/
+
 
 /*All the Map and directions related stuff section*/
 .mapbox {
@@ -45,7 +61,7 @@ body {
   margin-top: 10px;
   margin-bottom: 10px;
   background-color: white;
-  border: 4px solid #ea8a5d;
+  border: 4px solid rgb(103,102,104);
   border-radius: 4px;
   align-self: center;
 }
@@ -62,7 +78,7 @@ body {
 .directions {
   padding: 5px;
   width: 280px;
-  background-color: darkgreen;
+  background-color: rgb(135,162,177);
   color: whitesmoke;
   font-size: 22px;
 }
@@ -103,6 +119,7 @@ body {
   margin-bottom: 10px;
   background-color: white;
   overflow: scroll;
+  color: rgb(103,102,104);
 }
 
 .favBlock {
@@ -124,19 +141,14 @@ body {
   height: 200px;
 }
 
-.favTruckDetails {
-  height: 100%;
-  width: 100%;
-  background-color: #a9ffd4;
-}
-
 .link {
   text-align: center;
   width: 100%;
   margin-top: 4px;
   margin-bottom: 4px;
-  border-top: 6px solid #e5fafc;
+  border-top: 6px solid rgb(135,162,177);
   padding-top: 6px;
+  color: rgb(66,65,67);
 }
 
 a {
@@ -158,15 +170,15 @@ input {
 }
 
 .goThere {
-  background-color: red;
-  border-radius: 100%;
-  border-width: thick;
-  outline: none;
-  font-size: 28px;
-  color: white;
-  height: 70px;
-  width: 70px;
-  position: fixed;
+  /* background-color: red; */
+  /* border-radius: 100%; */
+  /* border-width: thick; */
+  /* outline: none; */
+  /* font-size: 28px; */
+  /* color: white; */
+  /* height: 70px; */
+  /* width: 70px; */
+  /* position: fixed; */
   margin-left: 70%;
   margin-top: -30px;
   z-index: 1;
@@ -211,8 +223,8 @@ input {
 }
 
 .reviewBlock {
-  background-color: #e5fafc;
-  border-top: 4px solid #ea8a5d;
+  background-color: rgb(168,171,174);
+  border-top: 8px solid rgb(103,102,104);
   padding-top: 12px;
   padding-left: 4px;
   margin-top: 20px;
@@ -220,7 +232,7 @@ input {
 
 .yelpUserPic {
   float: left;
-  border: lightgray solid 10px;
+  border: lightgray solid 2px;
   border-radius: 8px;
   margin-right: 10px;
   height: 100px;

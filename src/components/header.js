@@ -10,14 +10,14 @@ class Header extends Component {
         'Content-Type': 'application/json',
     },
   })
+  console.log("User Logged Out");
 };
-
 
   render() {
     return (
       <div className="header">
-        <p className="headerPtag">Fork in the Road</p>
-        <Link to='/'><button onClick={() => this.logOut()}>Log Out</button></Link>
+        <p className="headerPtag">FORK IN THE ROAD</p>
+        <Link className='logOut' to='/'><button onClick={() => this.logOut()}>Log Out</button></Link>
       </div>
     );
   }

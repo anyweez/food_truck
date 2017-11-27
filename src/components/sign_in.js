@@ -51,7 +51,7 @@ class SignIn extends Component {
         <img className="logoPic" src="../img/road_fork.png" />
 
         <input onChange={ ev => this.handleChange('name', ev)}
-          type="text" value={this.state.name} placeholder="user name"/>
+          type="text" value={this.state.name} placeholder="username"/>
 
         <input onChange={ ev => this.handleChange('password', ev)}
           type="password" value={this.state.password} placeholder="password"/>
@@ -61,7 +61,7 @@ class SignIn extends Component {
         </button>
 
         <button className="submit"
-          onClick={() => this.newUser()}>register new user
+          onClick={() => this.newUser()}>register
         </button>
 
       </div>

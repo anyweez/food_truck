@@ -4,6 +4,8 @@ import Favs from './favs'
 
 class FirstDisplay extends Component {
   render() {
+
+    
     return (
       <div className="firstDisplay">
         <MapBox/>

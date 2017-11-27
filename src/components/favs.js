@@ -26,7 +26,7 @@ class Favs extends Component {
       return (
         <div className="favs">
           <div>
-            local trucks
+            Local favorites
           </div>
           <TopFive/>
           <Link className="link" to='/allFavs'>All</Link>

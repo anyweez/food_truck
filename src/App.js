@@ -25,7 +25,8 @@ class App extends Component {
         <Switch>
           <Route exact path='/' component={SignIn} />
           <Route path='/register' component={RegisterUser} />
-          <Route exact path='/users' component={FirstDisplay} />
+           {/* added id to users to allow for sessions  */}
+          <Route path='/users/' component={FirstDisplay} />
           <Route exact path='/owner' component={OwnerInterface} />
           <Route path='/allFavs' component={AllFavs} />
           {/* <Route path='/allFavs' render={props => <AllFavs {...props} favorites={this.props.favorites} />} /> */}
