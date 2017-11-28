@@ -20,34 +20,26 @@ body {
 }
 
 .header {
-  display: grid;
-  grid-template-columns: 33% 33% 34%;
-  grid-template-rows: 100%;
   margin: none;
   background-color: white;
   width: 100%;
 }
 
 .headerPtag {
-  /* display: inline-flex; */
-  grid-column-start: 2;
-  grid-column-end: 3;
+
   /* width: 100%; */
   font-size: 28px;
   font-weight: bolder;
   color: rgb(135,162,177);
   margin-top: 0;
   margin-bottom: 2px;
-  /* justify-content: center; */
-  /* text-align: center;  */
+  text-align: center;
 }
 
 .logOut {
-  /* display: flex-end; */
   grid-column-start: 3;
   grid-column-end: 3;
   grid-template-areas: 1;
-  justify-self: end;
 }
 /* End All The Primary Stuff Section*/
 

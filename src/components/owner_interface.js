@@ -6,6 +6,13 @@ class OwnerInterface extends Component {
     this.state = {
       Position : [],
       activated: false,
+      businessName: '',
+      FoodType: '',
+      special1: '',
+      special2: '',
+      special3: '',
+      special4: '',
+      special5: '',
     }
   }
 
@@ -49,18 +56,42 @@ class OwnerInterface extends Component {
     })
   }
 
+  ownerProfile(state, ev) {
+    this.setState({
+      [state] : ev.target.value,
+    })  
+  };
+  
+  updateProfile() {
+    console.log("Working");
+  }
+
   render() {
     if (this.state.activated === false) {
       return (
         <div className="firstDisplay">
           <button className="updateLocation"
-            onClick={() => this.updateLocation()} >update<br/>location
+            onClick={() => this.updateLocation()} >Set new<br/>location
           </button>
-
-          <img className="logoPic" alt="logo" src="../img/road_fork.png" />
+          <input onChange={ ev => this.ownerProfile('businessName', ev)}
+            type="text" value={this.state.businessName} placeholder="Business Name"/>
+          <input onChange={ ev => this.ownerProfile('food_type', ev)}
+            type="text" value={this.state.foodType} placeholder="FoodType"/>
+          <input onChange={ ev => this.ownerProfile('special1', ev)}
+            type="text" value={this.state.special1} placeholder="First Special"/>
+          <input onChange={ ev => this.ownerProfile('special2', ev)}
+            type="text" value={this.state.special2} placeholder="Second Special"/>
+          <input onChange={ ev => this.ownerProfile('special3', ev)}
+            type="text" value={this.state.special3} placeholder="Third Special"/>
+          <input onChange={ ev => this.ownerProfile('special4', ev)}
+            type="text" value={this.state.special4} placeholder="Fourth Special"/>
+          <input onChange={ ev => this.ownerProfile('special5', ev)}
+            type="text" value={this.state.special5} placeholder="Fifth Special"/>
+          <button className="submit" onClick={() => this.updateProfile()}>Submit</button>
+          {/* <img className="logoPic" alt="logo" src="../img/road_fork.png" /> */}
 
           <button className="updateLocation" className="nonActive"
-            onClick={() => this.closeShop()} >close<br/>shop
+            onClick={() => this.closeShop()} >End<br/>day
           </button>
         </div>
       )
@@ -68,13 +99,13 @@ class OwnerInterface extends Component {
       return (
         <div className="firstDisplay">
           <button className="updateLocation" className="nonActive"
-            onClick={() => this.updateLocation()} >update<br/>location
+            onClick={() => this.updateLocation()} >Set New<br/>location
           </button>
 
           <img className="logoPic" alt="logo" src="../img/road_fork.png" />
 
           <button className="updateLocation"
-            onClick={() => this.closeShop()} >close<br/>shop
+            onClick={() => this.closeShop()} >End<br/>day
           </button>
         </div>
       )

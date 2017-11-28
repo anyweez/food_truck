@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 class TruckInfo extends Component {
   constructor(props) {
     super(props)
@@ -7,6 +6,8 @@ class TruckInfo extends Component {
       yelp_reviews: null,
     }
   }
+
+  
 
 componentDidMount() {
   fetch(`https://desolate-lowlands-68945.herokuapp.com/foodtrucks/reviews?id=${this.props.match.params.id}`)
@@ -22,8 +23,8 @@ goButton() {
   this.props.history.push('/users')
  }
 
-  render() {
 
+  render() {
     let reviews = <div></div>
 
     if (this.state.yelp_reviews === null) {
@@ -54,4 +55,4 @@ goButton() {
   }
 }
 
-export default TruckInfo
+export default TruckInfo;
