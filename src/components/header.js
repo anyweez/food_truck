@@ -17,7 +17,7 @@ class Header extends Component {
     return (
       <div className="header">
         <p className="headerPtag">FORK IN THE ROAD</p>
-        <Link className='logOut' to='/'><button onClick={() => this.logOut()}>Log Out</button></Link>
+        {/* <Link className='logOut' to='/'><button onClick={() => this.logOut()}>Log Out</button></Link> */}
       </div>
     );
   }

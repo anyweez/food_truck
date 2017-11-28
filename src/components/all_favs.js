@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import {Link} from 'react-router-dom'
-import { receiveData } from '../actions'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import {Link} from 'react-router-dom';
+// import { receiveData } from '../actions'
 
 class AllFavs extends Component {
 
@@ -20,6 +20,7 @@ class AllFavs extends Component {
             <div className="favBlock">
 
               <img className="fTruckPic"
+                alt="favorite truck"
                 src= {fav.imageURL}/>
 
               <p className="link">

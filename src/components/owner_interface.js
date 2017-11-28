@@ -57,7 +57,7 @@ class OwnerInterface extends Component {
             onClick={() => this.updateLocation()} >update<br/>location
           </button>
 
-          <img className="logoPic" src="../img/road_fork.png" />
+          <img className="logoPic" alt="logo" src="../img/road_fork.png" />
 
           <button className="updateLocation" className="nonActive"
             onClick={() => this.closeShop()} >close<br/>shop
@@ -71,7 +71,7 @@ class OwnerInterface extends Component {
             onClick={() => this.updateLocation()} >update<br/>location
           </button>
 
-          <img className="logoPic" src="../img/road_fork.png" />
+          <img className="logoPic" alt="logo" src="../img/road_fork.png" />
 
           <button className="updateLocation"
             onClick={() => this.closeShop()} >close<br/>shop

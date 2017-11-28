@@ -1,11 +1,12 @@
-import React, { Component } from 'react'
-import {Link} from 'react-router-dom'
+import React, { Component } from 'react';
+import SignIn from './sign_in';
+import { Link } from 'react-router-dom';
+// import {Link} from 'react-router-dom'
 
 class RegisterUser extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      customer: '',
       name: '',
       first_name: '',
       email: '',
@@ -15,26 +16,25 @@ class RegisterUser extends Component {
       yelpId: '',
       imageURL: '',
       url: '',
-      vendor: '',
+      userType: '',
     }
   }
 
   handleChange(state, ev) {
    
       this.setState({
-        [state] : ev.target.value
-      })   
+        [state] : ev.target.value,
+      })  
   }
+
 checkEmail() {
   let emailCounter = 0;
   for (let i=0; i<this.state.email.length; i++) {
-    console.log(this.state.email[i]);
     if (this.state.email[i] === '@' || this.state.email[i] === '.') {
     emailCounter ++;
-    
     }
   }
-  console.log(emailCounter);
+  // console.log(emailCounter);
   emailCounter === 2 ? '':  alert('Please enter a valid email address');
 }
   checkPassword(){
@@ -60,34 +60,34 @@ checkEmail() {
             if (this.state.password[i] === this.state.re_enter_password[j] && this.state.password[i] === numbers[l]){
               numberCounter ++
             }
+          }
       }
-    }
     }
     if (capitalCounter === 0) {
       // console.log(counter);
       // console.log(lowerCase);
-      alert('Password must contain one capital letter');
+      alert('Password must contain at least one capital letter');
     }
     if (numberCounter === 0) {
-      alert('Password must contain one number');
-    }
-    
+      alert('Password must contain at least one number');
+    } 
   }
-
+  
    validate() {
-
     this.state.password === this.state.re_enter_password ? this.checkPassword() : alert('The password you entered doesn\'t match');
     
-          if (this.state.vendor !== '') {
+          if (this.state.userType === '1') {
+          console.log(this.state.userType);
             this.addTruck()
           }
-          if (this.state.customer !== '') {
+          if (this.state.userType === '0') {
+            console.log(this.state.userType);
             this.addUser()
           }
    }
 
   addUser() {
-    fetch('https://desolate-lowlands-68945.herokuapp.com/login', {
+    fetch('https://desolate-lowlands-68945.herokuapp.com/signup', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -99,8 +99,10 @@ checkEmail() {
             first_name: this.state.first_name,
             password: this.state.password,
             email: this.state.email,
+            userType: this.state.userType,
         }),
-      })
+      }),
+      <SignIn/>
   }
 
   addTruck() {
@@ -119,6 +121,7 @@ checkEmail() {
           foodType: this.state.foodType,
           yelpId: this.state.yelpId,
           imageURL: this.state.imageURL,
+          userType: this.state.userType,
           url: this.state.url,
       }),
     }).then(()=>console.log('end of fetch request'))
@@ -132,7 +135,7 @@ checkEmail() {
 
         {/* <input onChange={ ev => this.handleChange('name',ev)}
           type="password" placeholder="password"/> */}
-        <img className="logoPic" src="../img/road_fork.png" />
+        <img className="logoPic" alt="logo" src="../img/road_fork.png" />
 
         <input onChange={ ev => this.handleChange('name',ev)}
           type="text" placeholder="username" value={this.state.name}/>
@@ -146,11 +149,13 @@ checkEmail() {
         <input onChange={ ev => this.handleChange('re_enter_password',ev)}
           type="password" placeholder="re-enter password" value={this.state.re_enter_password}/>
         { /* added select and first name , re-enter password and options to the registration page */ }
-        <select>
-          < option label='Choose Account'>Choose Account</option>
-          <option value="vendor">Vendor</option>
-          <option value="customer">Customer</option>
+        
+        <select value={this.state.userType} onChange={ev => this.handleChange('userType', ev)}>
+          <option>Choose Account</option>
+          <option value='1'>Vendor</option>
+          <option value='0'>Customer</option>
         </select>
+      
 
         <button onClick={() => this.validate()} className="submit" type="submit">register</button>
       </div>

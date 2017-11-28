@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 class TruckInfo extends Component {
   constructor(props) {
@@ -14,12 +14,13 @@ componentDidMount() {
   .then( (res) =>
   this.setState({
     yelp_reviews: res,
+
   }, () => console.log(this.state.yelp_reviews)))
 }
 
 goButton() {
   this.props.history.push('/users')
-}
+ }
 
   render() {
 
@@ -31,7 +32,7 @@ goButton() {
       reviews = this.state.yelp_reviews.reviews.map((data, index) => {
         return (
           <div key={index} className="reviewBlock">
-            <img className="yelpUserPic" src={data.user.image_url} />
+            <img className="yelpUserPic" alt="user" src={data.user.image_url} />
             <p>{data.user.name}</p>
             <p className="rating">RATING {data.rating} out of 5</p>
             <p>{data.text}</p>
@@ -44,9 +45,9 @@ goButton() {
     return (
       <div>
         <h3>Recent reviews</h3>
-        <button className="goThere"
+        {/* <button className="goThere"
           onClick={ ()=> this.goButton()}>Back to Map
-        </button>
+        </button> */}
         {reviews}
       </div>
     )

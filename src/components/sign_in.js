@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import {Link} from 'react-router-dom'
+import React, { Component } from 'react';
+// import {Link} from 'react-router-dom'
 
 class SignIn extends Component {
   constructor(props) {
@@ -48,7 +48,7 @@ class SignIn extends Component {
     return (
       <div className="signIn">
 
-        <img className="logoPic" src="../img/road_fork.png" />
+        <img className="logoPic" alt="logo" src="../img/road_fork.png" />
 
         <input onChange={ ev => this.handleChange('name', ev)}
           type="text" value={this.state.name} placeholder="username"/>
