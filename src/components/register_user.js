@@ -33,7 +33,6 @@ checkEmail() {
     emailCounter ++;
     }
   }
-  // console.log(emailCounter);
   emailCounter === 2 ? '':  alert('Please enter a valid email address');
 }
   checkPassword(){
@@ -129,11 +128,6 @@ checkEmail() {
   render() {
     return (
       <div className="register">
-        {/* <input onChange={ ev => this.handleChange('name',ev)}
-          type="text" placeholder="user name"/> */}
-
-        {/* <input onChange={ ev => this.handleChange('name',ev)}
-          type="password" placeholder="password"/> */}
         <img className="logoPic" alt="logo" src="../img/road_fork.png" />
 
         <input onChange={ ev => this.handleChange('name',ev)}

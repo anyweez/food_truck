@@ -31,7 +31,7 @@ class Nav extends Component {
       };
 
     render() {
-        const url = 'http://innocent-wheel.surge.sh/';
+        const url = 'https://innocent-wheel.surge.sh/';
         const history = createBrowserHistory({
         forceRefresh: true,
         });      
