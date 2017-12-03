@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import setVisibility from '../index';
 class TruckInfo extends Component {
   constructor(props) {
     super(props)
@@ -6,7 +7,14 @@ class TruckInfo extends Component {
       yelp_reviews: null,
     }
   }
-
+    componentWillMount() {
+      let url = window.location.href;
+        url.includes('trucks');
+          if (url.includes('trucks') === true) {
+             console.log('favorite truck')
+             setVisibility();
+          }
+    }
   
 
 componentDidMount() {
@@ -20,7 +28,7 @@ componentDidMount() {
 }
 
 goButton() {
-  this.props.history.push('/users')
+  this.props.history.push('/users/:id')
  }
 
 

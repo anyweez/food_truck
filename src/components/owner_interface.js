@@ -63,6 +63,7 @@ class OwnerInterface extends Component {
   };
   
   updateProfile() {
+    // need to add the post for the profile once the route is made.
     console.log("Working");
   }
 

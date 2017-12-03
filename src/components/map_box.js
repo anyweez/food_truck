@@ -115,65 +115,7 @@ class MapBox extends Component {
             }
           });
 
-          // All the points without a startTime
-          // response.map(response => {
-          //   console.log(response.location.startTime);
-          //   return {   
-          //     'type': 'Feature',
-          //     'properties': {
-          //       id: response.yelpId,
-          //       description: response.name,
-          //       startTime: response.location.startTime,
-          //       // Boolean indicates whether the location is up to date
-          //       updated: response.location.startTime !== undefined,
-          //     },
-
-          //     'geometry': {
-          //       'type': 'Point',
-          //       'coordinates':[response.location.longitude,
-          //                      response.location.latitude]
-          //     }, 
-
-          //   }
-          // }
-
-          //  );
-        
         })
-        // .then(features => {
-        //   this.map.addSource('pointsSource', {
-        //     type: 'geojson',
-        //     data: {
-        //       'type': 'FeatureCollection',
-        //       'features': features,
-        //     }
-        //   })
-        //   this.map.addLayer({
-        //     id: 'points',
-        //     source: 'pointsSource',
-        //     type: 'circle',
-        //   })
-            
-        //   this.map.addSource('workingTruck', {
-        //     type: 'geojson',
-        //     data: {
-        //       'type': 'FeatureCollection',
-        //       'features': features,
-        //     }
-        //   })
-          
-       
-        //   this.map.addLayer({
-        //     id: 'truck',
-        //     source: 'workingTruck',
-        //     type: 'circle',
-        //     paint: {
-        //       "circle-radius": 7,
-        //       "circle-color": "red"
-        //     }
-        //   })
-        //  }
-        // })
 
       navigator.geolocation.watchPosition(function (position) {
         bigBrother(position);
@@ -266,22 +208,6 @@ class MapBox extends Component {
       this.sendToGoogle();
 
     });
-
-//     this.map.on('click', 'missing', (e) => {
-//       // console.log('yeee')
-// console.log(e.features[0].properties.id);
-//       this.setState({
-//         id: e.features[0].properties.id,
-//         latitude: this.state.latitude,
-//         longitude: this.state.longitude,
-//         instructions: this.state.instructions});
-
-//       new window.mapboxgl.Popup()
-//         .setLngLat(e.features[0].geometry.coordinates)
-//         .setHTML(e.features[0].properties.description)
-//         .addTo(this.map)
-//         this.sendToGoogle();
-//     })
   }
 
   sendToGoogle() {

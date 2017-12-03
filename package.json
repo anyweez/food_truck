@@ -1,15 +1,16 @@
 {
   "name": "fork_in_the_road",
   "version": "0.1.0",
-  "homepage": "https://standing-engine.surge.sh",
   "private": true,
   "dependencies": {
     "@mapbox/geojson-area": "github:mapbox/geojson-area",
+    "history": "^4.7.2",
     "mapbox-gl": "^0.41.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-mapbox-gl": "^2.7.0",
     "react-redux": "^5.0.6",
+    "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.14",
     "redux": "^3.7.2",

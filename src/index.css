@@ -36,11 +36,9 @@ body {
   text-align: center;
 }
 
-.logOut {
-  grid-column-start: 3;
-  grid-column-end: 3;
-  grid-template-areas: 1;
-}
+/* .logOut {
+visibility: hidden;
+} */
 /* End All The Primary Stuff Section*/
 
 

@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 class Header extends Component {
 
-  logOut() {
-  fetch('https://desolate-lowlands-68945.herokuapp.com/logout', {
-    method: 'POST',
-    headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-    },
-  })
-  console.log("User Logged Out");
-};
+//   logOut() {
+//   fetch('https://desolate-lowlands-68945.herokuapp.com/logout', {
+//     method: 'POST',
+//     headers: {
+//         'Accept': 'application/json',
+//         'Content-Type': 'application/json',
+//     },
+//   })
+//   console.log("User Logged Out");
+// };
 
   render() {
     return (

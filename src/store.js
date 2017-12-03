@@ -1,5 +1,6 @@
 import { createStore } from 'redux'
 
+
 function reducer (state, action ) {
   if(action.type === 'YELP_DATA') {
 
