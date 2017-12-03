@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import setVisibility from '../index';
 class TruckInfo extends Component {
   constructor(props) {
     super(props)
@@ -7,15 +6,6 @@ class TruckInfo extends Component {
       yelp_reviews: null,
     }
   }
-    componentWillMount() {
-      let url = window.location.href;
-        url.includes('trucks');
-          if (url.includes('trucks') === true) {
-             console.log('favorite truck')
-             setVisibility();
-          }
-    }
-  
 
 componentDidMount() {
   fetch(`https://desolate-lowlands-68945.herokuapp.com/foodtrucks/reviews?id=${this.props.match.params.id}`)
@@ -54,9 +44,6 @@ goButton() {
     return (
       <div>
         <h3>Recent reviews</h3>
-        {/* <button className="goThere"
-          onClick={ ()=> this.goButton()}>Back to Map
-        </button> */}
         {reviews}
       </div>
     )

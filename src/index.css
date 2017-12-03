@@ -36,9 +36,15 @@ body {
   text-align: center;
 }
 
-/* .logOut {
+.hidden {
 visibility: hidden;
-} */
+}
+
+.nav {
+  visibility: visible;
+}
+
+
 /* End All The Primary Stuff Section*/
 
 
@@ -145,6 +151,7 @@ a {
   text-decoration: none;
   width: 100%;
   font-size: 22px;
+  text-align: center;
 }
 
 input {

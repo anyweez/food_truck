@@ -8,11 +8,6 @@ import { Provider } from 'react-redux';
 import  { store } from './store';
 import { BrowserRouter } from 'react-router-dom';
 
-
-export default function setVisibility() {
-  console.log('Hello');
-}
-
 ReactDOM.render(
   <BrowserRouter>
     <Provider store={store}>

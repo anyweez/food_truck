@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SignIn from './sign_in';
+import { Link } from 'react-router-dom';
 
 class RegisterUser extends Component {
   constructor(props) {
@@ -155,7 +156,7 @@ checkEmail() {
         </select>
       
 
-        <button onClick={() => this.validate()} className="submit" type="submit">register</button>
+       <Link to='/'><button onClick={() => this.validate()} className="submit" type="submit">register</button></Link>
       </div>
     )
   }
