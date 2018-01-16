@@ -8,7 +8,6 @@ class Nav extends Component {
         this.state = {
         }
     }
-
     addFavorite() {
         fetch('https://desolate-lowlands-68945.herokuapp.com/favorites?id=${this.props.match.params.id}', {
             method: 'POST',
@@ -31,10 +30,10 @@ class Nav extends Component {
       };
 
     render() {
-        const url = 'https://innocent-wheel.surge.sh/';
-        const history = createBrowserHistory({
-        forceRefresh: true,
-        });      
+        const url = 'http://localhost:3000/';
+        // const history = createBrowserHistory({
+        // forceRefresh: true,
+        // });      
 
         if (window.location.href === url || window.location.href.includes('register')) {
             return (
@@ -45,13 +44,11 @@ class Nav extends Component {
         if (window.location.href.includes('/users')) {
             return (
                 <div>
-                    <Link to='/users/'><button className="hidden" onClick={ ()=> this.addFavorite()}>Add Favorite</button></Link>
-                    <Link to='/users/'><button className="hidden">Back to Map</button></Link>
                     <Link to='/'><button className="nav" onClick={() => this.logOut()}>Log Out</button></Link>
                 </div>
             );
         }
-        if (window.location.href.includes('/trucks')) {
+        else if (window.location.href.includes('/trucks')) {
             return (
                 <div>
                     <Link to='/users/'><button className="nav" onClick={ ()=> this.addFavorite()}>Add Favorite</button></Link>
@@ -68,10 +65,7 @@ class Nav extends Component {
                 </div>
             );
         }
-        console.log(this.state.logOut);
     };
 };
-
-
 
 export default Nav;

@@ -76,7 +76,7 @@ checkEmail() {
     
           if (this.state.userType === '1') {
           console.log(this.state.userType);
-            this.addTruck()
+            this.addUser()
           }
           if (this.state.userType === '0') {
             console.log(this.state.userType);
@@ -112,7 +112,7 @@ checkEmail() {
           'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-          name: this.state.name,
+          userName: this.state.name,
           first_name: this.state.first_name,
           email: this.state.email,
           password: this.state.password,

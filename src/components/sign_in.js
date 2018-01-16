@@ -24,10 +24,12 @@ class SignIn extends Component {
       }).then( res => res.json())
   // This section checks the response body to push user to correct location
       .then(res => {
+        console.log(res);
         if (res.userType === 'owner') {
           this.props.history.push('/owner')
         } else if (res.userType === 'customer') {
-          this.props.history.push('/users/')
+          console.log(res.id);
+          this.props.history.push('/users/'+ res.id)
   // This section checks the response body to push user to correct location
           }
       })
@@ -42,13 +44,11 @@ class SignIn extends Component {
      [state] : ev.target.value,
    })
  }
-
   render() {
     return (
       <div className="signIn">
 
         <img className="logoPic" alt="logo" src="../img/road_fork.png" />
-
         <input onChange={ ev => this.handleChange('name', ev)}
           type="text" value={this.state.name} placeholder="username"/>
 

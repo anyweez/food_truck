@@ -2,6 +2,7 @@
   "name": "fork_in_the_road",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://innocent-wheel.surge.sh",
   "dependencies": {
     "@mapbox/geojson-area": "github:mapbox/geojson-area",
     "history": "^4.7.2",

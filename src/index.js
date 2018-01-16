@@ -15,7 +15,6 @@ ReactDOM.render(
     </Provider>
   </BrowserRouter>, document.getElementById('root'));
 registerServiceWorker();
-
 // export const withrouter(mycomponent)
 // {ilo9gedinf == url ? <div></div> : <div>not loghin</div>}
 
