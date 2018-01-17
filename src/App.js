@@ -25,7 +25,7 @@ class App extends Component {
         <Header/>
         <Nav/>
         <Switch>
-          <Route path='/' component={SignIn} />
+          <Route exact path='/' component={SignIn} />
           <Route path='/register' component={RegisterUser} />
            {/* added id to users to allow for sessions  */}
           <Route path='/users' component={FirstDisplay} />
