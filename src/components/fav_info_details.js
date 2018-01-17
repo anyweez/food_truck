@@ -4,6 +4,7 @@ class TruckInfo extends Component {
     super(props)
     this.state = {
       yelp_reviews: null,
+      food_trucks: null,
     }
   }
 
@@ -15,6 +16,14 @@ componentDidMount() {
     yelp_reviews: res,
 
   }, () => console.log(this.state.yelp_reviews)))
+
+    fetch(`https://desolate-lowlands-68945.herokuapp.com/foodtruck/all`)
+    .then( res => res.json())
+    .then( (res) =>
+    this.setState({
+      food_trucks: res,
+    }, () => console.log(this.state.food_trucks)))
+     
 }
 
 goButton() {
@@ -22,9 +31,10 @@ goButton() {
  }
 
 
+
+
   render() {
     let reviews = <div></div>
-
     if (this.state.yelp_reviews === null) {
       return reviews
     } else {
@@ -41,12 +51,39 @@ goButton() {
       })
     }
 
+    //The below code checks if the params id matches the id in the food trucks array. If a match is found, the name is displayed on the page.
+    let business_name = <h2></h2>;
+    if (this.state.food_trucks === null) {
+      return business_name;
+    } else {
+    business_name = this.state.food_trucks.map((data, index) => {
+      if (data.yelpId === this.props.match.params.id) {
+      return data.name;
+      } else {
+        return business_name;
+      }
+      })
+    };
+  
     return (
       <div>
-        <h3>Recent reviews</h3>
+       {business_name}
+        <h4 className="today">Today's specials</h4>
+        <p className="special">Chicken Parmasean Sub</p>
+        <p>Two chicken breasts breaded and fried to perfection. Covered with our
+          homemade sauce and fresh baked bread. Served with our delicious steak fries.</p>
+        <h3>What customers are saying</h3>
         {reviews}
+        
       </div>
     )
+  }
+}
+
+
+function state2props(state){
+  return {
+    favorites: state.favorites,
   }
 }
 

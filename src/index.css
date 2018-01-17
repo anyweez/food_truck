@@ -229,6 +229,9 @@ textarea {
   padding-top: 12px;
   padding-left: 4px;
   margin-top: 20px;
+  overflow-wrap: normal;
+  height: 30%;
+  width: 30%;
 }
 
 .yelpUserPic {
@@ -244,4 +247,16 @@ textarea {
   margin-top: 20px;
   margin-bottom: 25px;
   height: 225px;
+}
+
+h2 {
+  color: rgb(247,207,70);
+}
+
+.special {
+  color: white;
+}
+
+.today {
+  color: white;
 }
