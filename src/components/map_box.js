@@ -58,7 +58,7 @@ class MapBox extends Component {
               data: {
                 'type': 'FeatureCollection',
                 'features': located,
-              }
+              },
             });
 
             this.map.addLayer({

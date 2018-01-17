@@ -9,10 +9,12 @@ class OwnerInterface extends Component {
       businessName: '',
       FoodType: '',
       special1: '',
+      special1_description: '',
       special2: '',
+      special2_description: '',
       special3: '',
-      special4: '',
-      special5: '',
+      special3_description: '',
+      
     }
   }
 
@@ -80,12 +82,17 @@ class OwnerInterface extends Component {
             type="text" value={this.state.foodType} placeholder="FoodType"/>
           <input onChange={ ev => this.ownerProfile('special1', ev)}
             type="text" value={this.state.special1} placeholder="First Special"/>
+            <textarea cols="50" rows="80" onChange={ ev => this.ownerProfile('special1_description', ev)}
+             value={this.state.special1_description} placeholder="Enter Description"/>
           <input onChange={ ev => this.ownerProfile('special2', ev)}
             type="text" value={this.state.special2} placeholder="Second Special"/>
+          <textarea cols="50" rows="80" onChange={ ev => this.ownerProfile('special2_description', ev)}
+             value={this.state.special2_description} placeholder="Enter Description"/>
           <input onChange={ ev => this.ownerProfile('special3', ev)}
             type="text" value={this.state.special3} placeholder="Third Special"/>
-          <input onChange={ ev => this.ownerProfile('special4', ev)}
-            type="text" value={this.state.special4} placeholder="Fourth Special"/>
+          <textarea cols="50" rows="80" onChange={ ev => this.ownerProfile('special3_description', ev)}
+             value={this.state.special3_description} placeholder="Enter Description"/>
+
           <input onChange={ ev => this.ownerProfile('special5', ev)}
             type="text" value={this.state.special5} placeholder="Fifth Special"/>
           <button className="submit" onClick={() => this.updateProfile()}>Submit</button>
