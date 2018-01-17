@@ -5,8 +5,6 @@ import createBrowserHistory from 'history/createBrowserHistory';
 class Nav extends Component {
     constructor(props) {
         super(props)
-        this.state = {
-        }
     }
     addFavorite() {
         fetch('https://desolate-lowlands-68945.herokuapp.com/favorites?id=${this.props.match.params.id}', {
@@ -30,17 +28,9 @@ class Nav extends Component {
       };
 
     render() {
-        const url = 'http://localhost:3000/';
-        // const history = createBrowserHistory({
-        // forceRefresh: true,
-        // });      
-
-        if (window.location.href === url || window.location.href.includes('register')) {
-            return (
-                <div>
-                </div>
-            );
-        }
+        const history = createBrowserHistory({
+        forceRefresh: true,
+        });      
         if (window.location.href.includes('/users')) {
             return (
                 <div>
@@ -54,6 +44,12 @@ class Nav extends Component {
                     <Link to='/users/'><button className="nav" onClick={ ()=> this.addFavorite()}>Add Favorite</button></Link>
                     <Link to='/users/'><button className="nav">Back to Map</button></Link>
                     <Link to='/'><button className="nav" onClick={() => this.logOut()}>Log Out</button></Link>
+                </div>
+            );
+        }
+        else if (window.location.pathname === '/' || window.location.href.includes('register')) {
+            return (
+                <div>
                 </div>
             );
         }
