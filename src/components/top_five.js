@@ -7,7 +7,7 @@ class TopFive extends Component {
   render() {
 
     let favs = <div></div>
-
+console.log(this.props.favorites + "Here we go");
     if (this.props.favorites === undefined) {
       return favs
     } else {

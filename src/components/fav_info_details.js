@@ -22,16 +22,12 @@ componentDidMount() {
     .then( (res) =>
     this.setState({
       food_trucks: res,
-    }, () => console.log(this.state.food_trucks)))
-     
+    }, () => console.log(this.state.food_trucks)))    
 }
 
 goButton() {
   this.props.history.push('/users/:id')
  }
-
-
-
 
   render() {
     let reviews = <div></div>
@@ -67,7 +63,7 @@ goButton() {
   
     return (
       <div>
-       {business_name}
+       <h2>{business_name}</h2>
         <h4 className="today">Today's specials</h4>
         <p className="special">Chicken Parmasean Sub</p>
         <p>Two chicken breasts breaded and fried to perfection. Covered with our

@@ -8,9 +8,7 @@ class FirstDisplay extends Component {
 
   render() {
     let search = this.props.match.params.id;
-    console.log(search + 'Hi')
     if (window.location.href.includes(search)) {
-      console.log("Testing purposes");
       <Route path='/' component={SignIn}/>
     }
     

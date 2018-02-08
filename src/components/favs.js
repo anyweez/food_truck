@@ -20,16 +20,17 @@ class Favs extends Component {
         className="directions"/>
     })
 
-    console.log(this.props.instructions)
+    console.log(this.props.instructions);
+   
 
     if (this.props.instructions.length === 0) {
       return (
         <div className="favs">
           <div>
-            Local favorites
+            User suggested favorites
           </div>
           <TopFive/>
-          <Link className="link" to='/allFavs'>All</Link>
+          {/* <Link className="link" to='/allFavs'>All</Link> */}
         </div>
       )
     } else {

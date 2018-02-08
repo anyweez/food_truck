@@ -94,28 +94,6 @@ checkEmail() {
       <SignIn/>
   }
 
-  // addTruck() {
-  //   console.log('begining of fetch request')
-  // fetch('https://desolate-lowlands-68945.herokuapp.com/user/foodtruck/add', {
-  //     method: 'POST',
-  //     headers: {
-  //         'Accept': 'application/json',
-  //         'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify({
-  //         userName: this.state.name,
-  //         first_name: this.state.first_name,
-  //         email: this.state.email,
-  //         password: this.state.password,
-  //         foodType: this.state.foodType,
-  //         yelpId: this.state.yelpId,
-  //         imageURL: this.state.imageURL,
-  //         userType: this.state.userType,
-  //         url: this.state.url,
-  //     }),
-  //   }).then(()=>console.log('end of fetch request'))
-  // }
-
   render() {
     return (
       <div className="register">
@@ -142,6 +120,7 @@ checkEmail() {
       
 
        <Link to='/'><button onClick={() => this.validate()} className="submit" type="submit">register</button></Link>
+       <Link to='/'><button className='nav'>log in</button></Link>
       </div>
     )
   }

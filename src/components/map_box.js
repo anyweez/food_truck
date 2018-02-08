@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { storeDirections } from '../actions';
+import {Link} from 'react-router-dom'
 
 class MapBox extends Component {
   constructor(props) {
@@ -16,6 +17,7 @@ class MapBox extends Component {
   }
 
   componentDidMount() {
+    
     this.props.storeInstructions(this.state.instructions);
     window.mapboxgl.accessToken = 'pk.eyJ1IjoiY2p6ZWxlZG9uIiwiYSI6ImNqOG5jdnlhODE5a3MycW11MWo1eGV2Y2QifQ.WZStz_i8Bt1B4OEZJMg_WA';
 
@@ -23,10 +25,10 @@ class MapBox extends Component {
     this.map = new window.mapboxgl.Map({
       container: 'map', // container id
       style: 'mapbox://styles/mapbox/streets-v9', // stylesheet location
-      center: [-80.8464, 35.2269], // starting position [lng, lat]
+      center: [-80.8464, 35.2269], //  starting position [lng, lat]
       zoom: 14 // starting zoom
-    });
-
+    })
+console.log(this.state.latitude, this.state.longitude);
     //Retreives the json of foodtrucks and returns the coordinates to the map in geojson.
     this.map.on('load', () => {
       fetch('https://desolate-lowlands-68945.herokuapp.com/foodtruck/all')
@@ -36,7 +38,7 @@ class MapBox extends Component {
           const located = response
             .filter(item => item.location.startTime !== null)
             .map(item => {
-              //console.log(item);
+              // console.log(item);
               return {  
                 'type': 'Feature',
                 'properties': {
@@ -177,10 +179,13 @@ class MapBox extends Component {
         longitude: this.state.longitude,
         instructions: this.state.instructions
       });
-
+         
+      let link = <Link to={`/trucks/${this.props.favorites.yelpId}`}>Menu</Link>;
+      
       new window.mapboxgl.Popup()
       .setLngLat(e.features[0].geometry.coordinates)
-      .setHTML(e.features[0].properties.description)
+      .setHTML(e.features[0].properties.description + '<p>' + link +'</p>')
+      
       .addTo(this.map)
       this.sendToGoogle();
 
@@ -203,7 +208,7 @@ class MapBox extends Component {
 
       new window.mapboxgl.Popup()
       .setLngLat(e.features[0].geometry.coordinates)
-      .setHTML(e.features[0].properties.description)
+      .setHTML(e.features[0].properties.description + '<p>Future menu link</p>')
       .addTo(this.map)
       this.sendToGoogle();
 
@@ -288,6 +293,11 @@ class MapBox extends Component {
     );
   };
 };
+function state2props(state){
+  return {
+    favorites: state.favorites,
+  }
+}
 
   export function mapDispatch2Props(dispatch) {
     return {

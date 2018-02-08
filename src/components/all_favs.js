@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom';
 class AllFavs extends Component {
 
   render() {
-
+console.log(this.props.favorites);
     let favs = <div></div>
 
     if (this.props.favorites === undefined) {
