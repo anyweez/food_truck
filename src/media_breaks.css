@@ -1,14 +1,27 @@
+@media (min-width: 300px) {
+  .firstDisplay {
+    width: 290px;
+  }
+}
 @media (min-width: 350px) {
+
+  .firstDisplay {
+    width: 310px;
+  }
   .mapbox {
     height: 320px;
     width: 320px;
   }
+ 
   .directions {
     width: 320px;
   }
 }
 
 @media (min-width: 400px) {
+  
+
+
   .mapbox {
     height: 385px;
     width: 385px;
