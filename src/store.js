@@ -7,6 +7,7 @@ function reducer (state, action ) {
     return {
       favorites: action.payload,
       instructions: state.instructions,
+      id: state.id,
     }
   }
 
@@ -15,6 +16,17 @@ function reducer (state, action ) {
     return {
       instructions: action.payload,
       favorites: state.favorites,
+      userId: state.userId,
+    }
+  }
+
+if (action.type === 'Store the User Id') {
+      console.log(action.payload);
+    return {
+  
+     userId : action.payload,
+     favorites: state.favorites,
+     instructions: state.instructions,
     }
   }
   return state;
@@ -23,4 +35,5 @@ function reducer (state, action ) {
 export const store = createStore(reducer, {
   favorites: [],
   instructions: [],
+  userId: 0,
 })

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { storeDirections } from '../actions';
 import {Link} from 'react-router-dom'
+import { storeUserId } from '../actions';
 
 class MapBox extends Component {
   constructor(props) {
@@ -9,7 +10,7 @@ class MapBox extends Component {
     this.state = {
       latitude: 0,
       longitude: 0,
-      id: '',
+      id: 0,
       instructions: [],
       distance: [],
       draw_line: [],
@@ -17,8 +18,7 @@ class MapBox extends Component {
   }
 
   componentDidMount() {
-    
-    this.props.storeInstructions(this.state.instructions);
+    // this.props.storeInstructions(this.state.instructions);
     window.mapboxgl.accessToken = 'pk.eyJ1IjoiY2p6ZWxlZG9uIiwiYSI6ImNqOG5jdnlhODE5a3MycW11MWo1eGV2Y2QifQ.WZStz_i8Bt1B4OEZJMg_WA';
 
     //Adds the map
@@ -28,7 +28,7 @@ class MapBox extends Component {
       center: [-80.8464, 35.2269], //  starting position [lng, lat]
       zoom: 14 // starting zoom
     })
-console.log(this.state.latitude, this.state.longitude);
+//console.log(this.state.latitude, this.state.longitude);
     //Retreives the json of foodtrucks and returns the coordinates to the map in geojson.
     this.map.on('load', () => {
       fetch('https://desolate-lowlands-68945.herokuapp.com/foodtruck/all')
@@ -96,8 +96,6 @@ console.log(this.state.latitude, this.state.longitude);
               },
             };
           });
-
-          console.log(missing);
 
           this.map.addSource('missing', {
             type: 'geojson',
@@ -167,8 +165,7 @@ console.log(this.state.latitude, this.state.longitude);
     //Centers the point the user selected on the map
 
     this.map.on('click', 'located', (e) => {
-      // console.log('hi');
-      // The flyTo needed to be an arrow function to not tie it to the the map.on function.
+         // The flyTo needed to be an arrow function to not tie it to the the map.on function.
       this.map.flyTo({
         center: e.features[0].geometry.coordinates
       });
@@ -180,12 +177,11 @@ console.log(this.state.latitude, this.state.longitude);
         instructions: this.state.instructions
       });
          
-      let link = <Link to={`/trucks/${this.props.favorites.yelpId}`}>Menu</Link>;
+      let link = <Link to={`$/trucks/${this.props.favorites.yelpId}`}>Menu</Link>;
       
       new window.mapboxgl.Popup()
       .setLngLat(e.features[0].geometry.coordinates)
       .setHTML(e.features[0].properties.description + '<p>' + link +'</p>')
-      
       .addTo(this.map)
       this.sendToGoogle();
 
@@ -208,7 +204,7 @@ console.log(this.state.latitude, this.state.longitude);
 
       new window.mapboxgl.Popup()
       .setLngLat(e.features[0].geometry.coordinates)
-      .setHTML(e.features[0].properties.description + '<p>Future menu link</p>')
+      .setHTML(e.features[0].properties.description)
       .addTo(this.map)
       this.sendToGoogle();
 
@@ -279,6 +275,8 @@ console.log(this.state.latitude, this.state.longitude);
       });
   };
 
+  
+
   render() {
   //   console.log(this.state.longitude);
   //   console.log(this.state.id);
@@ -287,6 +285,7 @@ console.log(this.state.latitude, this.state.longitude);
   //  console.log(this.state.draw_line);
 
     return (
+
       <div className="mapbox">
         <div id="map" />
       </div>
@@ -308,4 +307,5 @@ function state2props(state){
   };
 //The first option on connect is mapState2Props, second is MapDispatch2Props
 //if one option is not used it needs to be listed as null
-export default connect(null, mapDispatch2Props)(MapBox);
+
+export default connect(state2props, mapDispatch2Props)(MapBox);

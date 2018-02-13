@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { storeUserId } from '../actions';
+
 
 class SignIn extends Component {
   constructor(props) {
@@ -6,8 +9,11 @@ class SignIn extends Component {
     this.state = {
       name: '',
       password: '',
+      userId: 0,
     }
   }
+  
+  
 
   logIn() {
     fetch('https://desolate-lowlands-68945.herokuapp.com/login', {
@@ -24,12 +30,14 @@ class SignIn extends Component {
       }).then( res => res.json())
   // This section checks the response body to push user to correct location
       .then(res => {
-        console.log(res);
+
+        this.setState({userId: res.id})  , 
+        this.props.getUserId(this.state.userId)   
         if (res.userType === 'owner') {
           this.props.history.push('/owner')
         } else if (res.userType === 'customer') {
-          console.log(res.id);
-          this.props.history.push('/users/'+ res.id)
+          this.props.history.push('/users/'+ res.id),
+          console.log(this.state.userId);
   // This section checks the response body to push user to correct location
           }
       })
@@ -41,13 +49,11 @@ class SignIn extends Component {
 
   handleChange(state, ev) {
    this.setState({
-     [state] : ev.target.value,
-   })
-   
+     [state] : ev.target.value})
  }
  
   render() {
-   
+
     return (
       <div className="signIn">
 
@@ -59,8 +65,7 @@ class SignIn extends Component {
           type="password" value={this.state.password} placeholder="password"/>
 
         <button className="submit"
-          onClick={() => this.logIn()}>log in
-        </button>
+          onClick={() => this.logIn()}>log in</button>
 
         <button className="submit"
           onClick={() => this.newUser()}>register
@@ -71,4 +76,13 @@ class SignIn extends Component {
   };
 };
 
-export default SignIn;
+export function mapDispatch2Props(dispatch) {
+    return {
+      getUserId: function (userId) {
+        console.log(userId);
+        dispatch(storeUserId(userId));
+      },
+    };
+  };
+ 
+export default connect(null, mapDispatch2Props)(SignIn);

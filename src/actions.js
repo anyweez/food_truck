@@ -12,3 +12,13 @@ export function storeDirections(instructions) {
     payload: instructions,
   }
 }
+
+export function storeUserId(userId) {
+  console.log(userId);
+  return {
+    type: 'Store the User Id',
+    payload: userId,
+  }
+}
+
+

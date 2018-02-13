@@ -49,8 +49,4 @@ function state2props(state){
   }
 }
 
-function dispatch2props(dispatch) {
-  return {}
-}
-
-export default connect (state2props, dispatch2props ) (AllFavs)
+export default connect (state2props ) (AllFavs)

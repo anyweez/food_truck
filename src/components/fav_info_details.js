@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 class TruckInfo extends Component {
   constructor(props) {
     super(props)
@@ -15,21 +17,22 @@ componentDidMount() {
   this.setState({
     yelp_reviews: res,
 
-  }, () => console.log(this.state.yelp_reviews)))
+  }))
 
     fetch(`https://desolate-lowlands-68945.herokuapp.com/foodtruck/all`)
     .then( res => res.json())
     .then( (res) =>
     this.setState({
       food_trucks: res,
-    }, () => console.log(this.state.food_trucks)))    
+    }))    
 }
 
-goButton() {
-  this.props.history.push('/users/:id')
- }
+// goButton() {
+//   this.props.history.push('/users/:id')
+//  }
 
   render() {
+    console.log(this.props.userId);
     let reviews = <div></div>
     if (this.state.yelp_reviews === null) {
       return reviews
@@ -80,7 +83,8 @@ goButton() {
 function state2props(state){
   return {
     favorites: state.favorites,
+    userId: state.userId
   }
 }
 
-export default TruckInfo;
+export default connect(state2props, null)(TruckInfo);

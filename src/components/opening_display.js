@@ -21,4 +21,4 @@ class FirstDisplay extends Component {
   }
 }
 
-export default FirstDisplay
+export default FirstDisplay;

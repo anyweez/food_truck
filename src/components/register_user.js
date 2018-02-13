@@ -112,7 +112,7 @@ checkEmail() {
           type="password" placeholder="re-enter password" value={this.state.re_enter_password}/>
         { /* added select and first name , re-enter password and options to the registration page */ }
         
-        <select value={this.state.userType} onChange={ev => this.handleChange('userType', ev)}>
+        <select value={this.state.userType} onChange={ev => this.handleChange('userType', ev)} className="userType">
           <option>Choose Account</option>
           <option value='1'>Vendor</option>
           <option value='0'>Customer</option>
@@ -120,7 +120,7 @@ checkEmail() {
       
 
        <Link to='/'><button onClick={() => this.validate()} className="submit" type="submit">register</button></Link>
-       <Link to='/'><button className='nav'>log in</button></Link>
+       <Link to='/'><button className='submit'>log in</button></Link>
       </div>
     )
   }

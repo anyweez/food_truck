@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import createBrowserHistory from 'history/createBrowserHistory';
 
 class Nav extends Component {
-    constructor(props) {
-        super(props)
-    }
+  
     addFavorite() {
-        fetch('https://desolate-lowlands-68945.herokuapp.com/favorites?id=${this.props.match.params.id}', {
+        fetch('https://desolate-lowlands-68945.herokuapp.com/favorites/add?$truck_id=${this.props.id}', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -25,12 +24,12 @@ class Nav extends Component {
           },
         })
         console.log("User Logged Out"); 
+        console.log(this.props.userId);
       };
+      
 
     render() {
-        const history = createBrowserHistory({
-        forceRefresh: true,
-        });      
+          console.log(this.props.userId);  
         if (window.location.href.includes('/users')) {
             return (
                 <div>
@@ -41,8 +40,8 @@ class Nav extends Component {
         else if (window.location.href.includes('/trucks')) {
             return (
                 <div>
-                    <Link to='/users/'><button className="nav" onClick={ ()=> this.addFavorite()}>Add Favorite</button></Link>
-                    <Link to='/users/'><button className="nav">Back to Map</button></Link>
+                    <Link to={`/users/${ this.props.userId }`}><button className="nav" onClick={ ()=> this.addFavorite()}>Add Favorite</button></Link>
+                    <Link to={`/users/${ this.props.userId }`}><button className="nav">Back to Map</button></Link>
                     <Link to='/'><button className="nav" onClick={() => this.logOut()}>Log Out</button></Link>
                 </div>
             );
@@ -64,4 +63,10 @@ class Nav extends Component {
     };
 };
 
-export default Nav;
+function state2props(state){
+    return {
+      userId: state.userId
+    }
+  }
+
+export default connect (state2props, null)(Nav);

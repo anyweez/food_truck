@@ -4,7 +4,16 @@ import {Link} from 'react-router-dom'
 import { connect } from 'react-redux'
 
 class Favs extends Component {
-
+  getFavorites() {
+  fetch(`http://desolate-lowlands-68945.herokuapp.com/user/favorites/view`), {
+  method: 'GET',
+  headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+  }
+}
+  }
+  
   createMarkup(xml) {
     return {
       __html: xml
@@ -12,7 +21,6 @@ class Favs extends Component {
   }
 
   render() {
-
     let directions = this.props.instructions.map((info, index) => {
       return <div
         key={index}
@@ -20,7 +28,7 @@ class Favs extends Component {
         className="directions"/>
     })
 
-    console.log(this.props.instructions);
+    // console.log(this.props.instructions);
    
 
     if (this.props.instructions.length === 0) {

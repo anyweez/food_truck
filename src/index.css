@@ -170,16 +170,11 @@ textarea {
   width: 70px;
 }
 
+.userType {
+  margin-top: 15px;
+}
+
 .goThere {
-  /* background-color: red; */
-  /* border-radius: 100%; */
-  /* border-width: thick; */
-  /* outline: none; */
-  /* font-size: 28px; */
-  /* color: white; */
-  /* height: 70px; */
-  /* width: 70px; */
-  /* position: fixed; */
   margin-left: 70%;
   margin-top: -30px;
   z-index: 1;

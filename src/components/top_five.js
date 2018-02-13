@@ -7,7 +7,7 @@ class TopFive extends Component {
   render() {
 
     let favs = <div></div>
-console.log(this.props.favorites + "Here we go");
+// console.log(this.props.favorites + "Here we go");
     if (this.props.favorites === undefined) {
       return favs
     } else {
@@ -39,9 +39,4 @@ function state2props(state){
   }
 }
 
-function dispatch2props(dispatch) {
-  return {
-  }
-}
-
-export default connect (state2props, dispatch2props ) (TopFive)
+export default connect (state2props,null) (TopFive)
