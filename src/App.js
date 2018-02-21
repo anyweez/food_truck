@@ -22,7 +22,6 @@ class App extends Component {
     return (
       <div className="appWrapper">
         <Header/>
-        <Nav/>
         <Switch>
           <Route exact path='/' component={SignIn} />
           <Route path='/register' component={RegisterUser} />
